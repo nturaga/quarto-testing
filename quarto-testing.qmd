@@ -1,0 +1,90 @@
+---
+title: "quarto-testing"
+author: Nitesh Turaga
+projet:
+    type: 
+format: 
+    html:
+        code-fold: true
+        code-tools: true
+        code-line-numbers: true
+html-math-method: mathjax
+cache: true
+---
+
+{{ < include _computationscomplete.qmd >}}
+
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+```{r}
+add <- function(x, y) {
+    x + y
+}
+```
+
+Run the function:
+
+```{r}
+a <- 1000
+b <- 4000
+
+add(a, b)
+```
+
+| Index | Col1 | Col2 |
+|-------|------|------|
+| a     | 1    | 4    |
+| b     | 2    | 5    |
+| c     | 3    | 6    |
+
+: Table with some things
+
+Some linear regression math equations to show it's possible:
+
+$$
+y = mx + b + \epsilon
+$$ {#eq-linear-model}
+
+or
+
+$$
+y = \hat{\beta}_0 + \hat{\beta}_1 \times x + \epsilon
+$$
+
+## Install some packages
+
+::: callout-note
+Notice how chunk options are passed with
+:::
+
+    #| label: load-packages
+    #| include: true
+    #| echo: true
+    #| eval: false
+
+```{r}
+#| label: load-packages
+#| include: true
+#| echo: true
+#| eval: false
+install.packages('BiocManager')
+BiocManager::install(c('BiocParallel', 'tidyverse', 'ggplot2'))
+```
+
+## Renv
+
+Automatic `renv` : It does everything for you in terms of version control
+
+![How to start a quarto project](quarto-create-new-project.png){#start-project}
+
+Phenomenal way to include other documents:
+
+include callouts with `:::{.callout-note}` and hit enter or end with `:::`
+
+::: callout-note
+https://quarto.org/docs/authoring/includes.html
+:::
+
